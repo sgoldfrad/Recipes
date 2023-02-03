@@ -1,0 +1,28 @@
+<div *ngIf="recipe">
+    <label> שם המתכון</label><br>
+    <input type="text" value="{{recipe.Name}}" [(ngModel)]="recipe.Name"/>
+    <label>דרגה</label>
+    <input type="text" value="{{recipe.Level}}" [(ngModel)]="recipe.Level"/><br>
+    <!-- <img src="../../assets/images/{{recipe.Image}}" /> -->
+<label>דקות הכנה</label>
+
+    <input type="text" value=" {{recipe.PreparationTimeInMinute}}" [(ngModel)]="recipe.PreparationTimeInMinute "/><br>
+    <select [(ngModel)]="recipe.CategoryId" name="category" #categoryId="ngModel" required >
+        <option *ngFor="let item of categoryArry" [value]=item.Id>{{item.Name}} </option>
+    </select><br>
+    <label>רכיבים</label><br>
+    <div *ngFor="let x of recipe.Layers; let i=index">
+    <label>תאור השכבה</label><br>
+    <input type="text" value=" {{x.Description}}" [(ngModel)]=" recipe.Layers[i].Description"/><br>
+    <label>החומרים</label><br>      
+        <p *ngFor="let y of x.Components; let j=index">
+                     <input type="text" value="{{y}} " [(ngModel)]="recipe.Layers[i].Components[j]"/>
+        </p>
+    </div> 
+    <label>אופן ההכנה</label><br>
+
+    <ol>
+      <li *ngFor="let item of recipe.Preparation; let i=index">   <input type="text" value="{{item}}" [(ngModel)]=" recipe.Preparation[i]"/> </li>
+    </ol>
+    <input type="button" value="שמור" (click)="editRecipe()" />
+</div>

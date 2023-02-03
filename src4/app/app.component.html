@@ -1,0 +1,10 @@
+<nav>
+  <ul>
+      <li><a routerLink="all-recipe">כל המתכונים </a></li>
+      <li><a routerLink="login">התחברות</a></li>
+      <li><a routerLink="register">להרשמה</a></li>
+      <li *ngIf="check()"><a>ליציאה</a></li>
+  </ul>
+</nav>
+<h1> HELLO {{name}}</h1>
+<router-outlet></router-outlet>

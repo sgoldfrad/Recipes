@@ -1,0 +1,35 @@
+<form *ngIf="myRecipe">
+    <input type="text" placeholder="{{myRecipe.Name}}" [(ngModel)]="name" name="n" />
+    <input type="text" placeholder="{{myRecipe.Image}}" [(ngModel)]="img" name="i" />
+    <select [(ngModel)]="cat" name="s">
+        <option value="1">boiled</option>
+        <option value="2">coktail</option>
+        <option value="3">piece of cake</option>
+
+    </select>
+    <input type="number" placeholder="{{myRecipe.PreparationTimeInMinute}}" [(ngModel)]="time" name="t" />
+    <input type="number" placeholder="{{myRecipe.Level}}" [(ngModel)]="level" name="l" />//1-5
+    <h2>רכיבים</h2>
+    רכיב להוספה<input type="text" placeholder="comp" [(ngModel)]="comp" name="c" />
+    <div *ngFor="let item of myRecipe.Layers">
+        <input type="text" placeholder="{{item.Description}}"/>
+        <div *ngFor="let comp of item.Components">
+            <input type="text" placeholder="{{comp}}" />
+            <input type="button" value="-" (click)="deleteComp(item,comp)" />
+        </div>
+        <input type="button" value="+" (click)="newComp(item)" />
+    </div>
+    
+    <input type="text" placeholder="description" [(ngModel)]="description" name="d"/>
+    <input type="button" value="add layer" (click)="newLayer()" />
+    <h2>הוראות הכנה</h2>
+    <ol>
+        <li *ngFor="let item of myRecipe.Preparation">
+            <input style="width: 65vw;" type="text" placeholder="{{item}}" />
+            <input type="button" value="-" (click)="deletePrep(item)" />
+        </li>
+        <input type="button" value="+" (click)="newPrep()" />
+        <input type="text" placeholder="prep" [(ngModel)]="prep" name="p" />
+    </ol>
+    <input type=button value="save" (click)="addRecipe()" />
+</form>

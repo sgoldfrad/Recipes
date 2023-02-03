@@ -1,0 +1,19 @@
+<form>
+<input type="text" placeholder="name" [(ngModel)]="name" name="n"/>
+<input type="text" placeholder="image" [(ngModel)]="img" name="i"/>
+<select [(ngModel)]="cat" name="s">
+    <option value="1">boiled</option>
+    <option value="2">coktail</option>
+    <option value="3">piece of cake</option>
+
+</select>
+<input type="number" placeholder="time" [(ngModel)]="time" name="t"/>
+<input type="number" placeholder="level" [(ngModel)]="level" name="l"/>//1-5
+<input type="button" value="+" (click)="newComp()"/>
+<input type="text" placeholder="comp" [(ngModel)]="comp" name="c"/>
+<input type="button" value="add layer" (click)="newLayer()"/>
+<input type="text" placeholder="description" [(ngModel)]="description" name="d"/>
+<input type="button" value="+" (click)="newPrep()"/>
+<input type="text" placeholder="prep" [(ngModel)]="prep" name="p"/>
+<input type=button value="add" (click)="addRecipe()"/>
+</form>

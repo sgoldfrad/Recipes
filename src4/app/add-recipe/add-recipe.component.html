@@ -1,0 +1,39 @@
+<form (ngSubmit)="addRecipe(myForm)" #myForm="ngForm">
+    <input type="text" name="recipeName" placeholder="שם המתכון" [(ngModel)]="recipe.Name" #name="ngModel" required minlength="2"/><br>
+    <p *ngIf="name.touched&&name.errors?.['required']">שם זהו שדה חובה</p>
+
+    <input type="number" name="preparationTimeMinute" placeholder="דקות הכנה" [(ngModel)]="recipe.PreparationTimeInMinute" #preparationTimeMinute="ngModel" required/><br>
+    <p *ngIf="preparationTimeMinute.errors&&preparationTimeMinute.touched">זצן הכנה זהו שדה חובה </p>
+    
+   <input type="number" name="level" placeholder="דרגת קושי" [(ngModel)]="recipe.Level" #level="ngModel" required min="1" max="5"/><br> 
+   <p *ngIf="level.errors?.['min']">הדרגה צריכה להיות מ:1-5 </p>
+
+   <p *ngIf="level.errors&&level.touched">חובה לסמן דרגה </p>
+    <select [(ngModel)]="recipe.CategoryId" name="category" #categoryId="ngModel" required>
+        <option value="null" disabled>בחר קטגוריה</option>>
+        <option *ngFor="let item of categoryArry" [value]=item.Id>{{item.Name}} </option>
+    </select><br>
+    <p *ngIf="categoryId.errors">חובה לסמן קטגוריה </p>
+    <input type="text" name="layerDescription" placeholder="תיאור שכבה" [(ngModel)]="layer.Description" #layerDescription="ngModel" /><br>
+    <input type="text" name="component" placeholder="רכיבים" [(ngModel)]="layer.Components[componenetIndex]" #component="ngModel"/>
+    <input type="button" value="הוסף רכיב" (click)=" addComponenet()" />
+    <input type="button" value="סיים שכבה" (click)="addLayer()" /><br>
+    <input type="text" name="preparation" placeholder="אופן ההכנה" [(ngModel)]="recipe.Preparation[preperationIndex]" #preparation="ngModel" />
+    <input type="button" (click)="addPreperation()" value="הוסף שלב הכנה"/> <br>
+    <input type="submit" [disabled]="!myForm.valid" /> 
+</form>
+    <!-- //images category -->   
+     <!-- <input type="text" name="component" placeholder="רכיבים"  [(ngModel)]="recipe.Layers[layerIndex].Components[componenetIndex]"/>  -->
+     <!-- <input type="text" name="layerDescription" placeholder="תיאור שכבה" [(ngModel)]="recipe.Layers[layerIndex].Description"/>  -->
+    <!-- <input type="button" value=" הוספת המתכון" (click)="addRecipe()"/>  -->
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>Inputfgsggsffd</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select> -->
+      <!-- </mat-form-field> --> -->

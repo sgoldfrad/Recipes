@@ -1,0 +1,19 @@
+<div *ngIf="myRecipe">
+    <h2>{{myRecipe.Name}}</h2>
+    <div><img src="../../assets/icons/{{iconImage}}" /></div>
+    <img src="../../assets/images/{{myRecipe.Image}}">
+    <div><img *ngFor="let item of count" id="star" src ="{{item|numToStars}}"  /> </div>
+    <h2> {{myRecipe.PreparationTimeInMinute|convertToHour}}</h2>
+    <h2>רכיבים</h2>
+    <div *ngFor="let item of myRecipe.Layers">
+      {{item.Description}}
+        <ul>
+            <li *ngFor="let comp of item.Components">{{comp}}</li>
+        </ul>
+    </div>
+    <h2>הוראות הכנה</h2>
+    <ol>
+        <li  *ngFor="let item of myRecipe.Preparation">{{item}}</li>
+    </ol>
+    <input value="ערוך" type="button" *ngIf="user" (click)="loadEditRecipe()"/>
+</div>

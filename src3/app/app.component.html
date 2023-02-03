@@ -1,0 +1,19 @@
+<div id="all">
+    <mat-toolbar>
+        <!-- <button mat-stroked-button color="warn" class="butNav">טעים לי!</button> -->
+        <!-- <div class="example-button-container" class="butNav">
+            <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+              <mat-icon>home</mat-icon>
+            </button>
+          </div> -->
+        <button mat-raised-button color="warn" [routerLink]="['/allRecipes']" class="butNav">כל המתכונים </button>
+        <button mat-raised-button color="warn"[routerLink]="['/register']"  class="butNav">הרשמה</button>
+        <button mat-raised-button color="warn" [routerLink]="['/login']"  class="butNav">התחברות</button>
+        <button mat-raised-button color="warn" *ngIf="ifNotGuest()" [routerLink]="['/logout']"  class="butNav">התנתקות</button>
+        <button mat-raised-button color="warn" *ngIf="ifNotGuest()" [routerLink]="['/addRecipe']"  class="butNav">הוספת מתכון</button>
+        <span class="example-spacer"></span>
+        <span *ngIf="!ifNotGuest()">שלום אורח!</span>
+        <span *ngIf="ifNotGuest()">שלום {{userName}}!</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</div>

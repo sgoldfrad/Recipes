@@ -1,0 +1,18 @@
+<div *ngIf="recipe">
+    <h1>{{recipe?.Name}}</h1>
+    <img src="../../assets/images/{{recipe.Image}}" />
+    <h3>רכיבים</h3>
+    <div *ngFor="let x of recipe.Layers">
+        <h4>{{x.Description}} </h4>
+        <p *ngFor="let y of x.Components">
+            {{y}}
+        </p>
+    </div>
+    {{recipe.PreparationTimeInMinute|timePipe}}
+
+    <h3>אופן ההכנה</h3>
+    <ol>
+        <li *ngFor="let item of recipe.Preparation">{{item}}</li>
+    </ol>
+    <input type="button" value="עריכת מתכון" (click)="check()" />
+</div>

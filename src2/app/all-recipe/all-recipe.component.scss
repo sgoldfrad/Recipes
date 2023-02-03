@@ -1,0 +1,20 @@
+#divAll{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 12vw;
+    margin-right:5vw ;
+ }
+ .smallRecipe{
+    height: 30vh;
+}
+#filter{
+    display: inline;
+    right: opx;;
+    padding: 0px;
+    background-color: black;
+    color: white;
+    width: 20vw;
+    height: 100vh;
+}

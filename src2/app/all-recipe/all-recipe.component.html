@@ -1,0 +1,19 @@
+   <div  id="filter" *ngIf="isFilter">
+<input type="text" placeholder="שם המתכון" [(ngModel)]="filterName" (change)="filterArr()"><br>
+<input type="text" placeholder="קטגוריה" [(ngModel)]="filterCategory" (change)="filterArr()"><br>
+<input type="text" placeholder="זמן ההכנה " [(ngModel)]="filterPreperationTimeInMinute" (change)="filterArr()"><br>
+</div>
+<div id="divAll">
+<input type="button" (click)="addRecipe()" value="הוספת מתכון משלך"> -->
+<input type="button"  (click)="displayFilter()" value="בחר קטגוריה" id="filterbutton">
+
+ 
+<div  *ngFor="let item of filterArry" class="smallRecipe">
+    <app-small-recipe [myRecipe]="item" (click)="showDetails(item.Id)"></app-small-recipe><br>
+</div>
+
+
+</div>
+
+
+

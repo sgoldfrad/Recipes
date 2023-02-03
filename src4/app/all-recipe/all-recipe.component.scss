@@ -1,0 +1,37 @@
+#divAll{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 12vw;
+    margin-right:5vw ;
+    position: relative;
+    
+ }
+ .smallRecipe{
+    height: 30vh;
+}
+#filter{
+    // display: inline;
+    right: opx;;
+    padding: 0px;
+    background-color: black;
+    color: white;
+    width: 20vw;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+#filt{
+display: inline;
+position: sticky;
+top: 0px;
+right: 0px;
+}
+#all{
+    display: flex;
+    flex-wrap: nowrap;
+}
+#a{
+display: inline;
+}

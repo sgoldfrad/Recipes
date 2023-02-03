@@ -1,0 +1,7 @@
+
+
+<div id="divAll">
+<div *ngFor="let item of arr" (click)="loadRecipe(item.Id)" class="smallRecipe">
+    <app-small-recipe [myRecipe]="item" ></app-small-recipe>
+</div>
+</div>

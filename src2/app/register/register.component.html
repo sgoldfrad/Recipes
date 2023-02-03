@@ -1,0 +1,7 @@
+<input type="text" name="name" value="nambvcbvcbe" [(ngModel)]="myUser.Name" placeholder="{{name}}" />
+<input type="text" name="name" value="email" [(ngModel)]="myUser.Mail" placeholder="email" />
+<input type="text" name="name" value="adress" [(ngModel)]="myUser.Address" placeholder="address" />
+<input type="password" name="password" [(ngModel)]="myUser.Password" />
+<input type="button" (click)="register()" />
+<p *ngIf="isWrongPassword==true">alraedy wrong password</p>
+<p *ngIf="isWrongPassword==false">exists alraedy </p>

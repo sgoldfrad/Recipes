@@ -1,0 +1,18 @@
+<!-- <div>
+    <h3>{{myRecipe.Name}}</h3>
+    {{myRecipe.Level|levelPipe}}
+    <img src="../../assets/images/{{myRecipe.Image}}" />
+</div>
+hfgdjhgfjhgjghjhgfjhgfhgjghfjjjjjjjjjjjjjjjjjjj -->
+
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{myRecipe.Name}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="../../assets/images/{{myRecipe.Image}}" alt="Photo of food">
+    <mat-card-content>
+        {{myRecipe.Level|levelPipe}}
+    </mat-card-content>
+
+  </mat-card>

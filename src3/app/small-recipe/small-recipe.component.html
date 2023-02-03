@@ -1,0 +1,12 @@
+
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{myRecipe.Name}}</mat-card-title>
+          <mat-card-subtitle>{{myRecipe.PreparationTimeInMinute|convertToHour}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src = "../../assets/images/{{myRecipe.Image}}" alt="{{myRecipe.Name}}">
+        <mat-card-content >
+            <img *ngFor="let item of count" id="star" src ="{{item|numToStars}}"  /> 
+        </mat-card-content>
+      </mat-card>
