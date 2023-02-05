@@ -1,7 +1,23 @@
-<input type="text" name="name" value="nambvcbvcbe" [(ngModel)]="myUser.Name" placeholder="{{name}}" />
-<input type="text" name="name" value="email" [(ngModel)]="myUser.Mail" placeholder="email" />
-<input type="text" name="name" value="adress" [(ngModel)]="myUser.Address" placeholder="address" />
-<input type="password" name="password" [(ngModel)]="myUser.Password" />
-<input type="button" (click)="register()" />
-<p *ngIf="isWrongPassword==true">alraedy wrong password</p>
-<p *ngIf="isWrongPassword==false">exists alraedy </p>
+<!-- <div id="big">
+    <input type="text" name="name" value="nambvcbvcbe" [(ngModel)]="myUser.Name" placeholder="{{name}}" />
+    <input type="text" name="name" value="email" [(ngModel)]="myUser.Mail" placeholder="email" />
+    <input type="text" name="name" value="adress" [(ngModel)]="myUser.Address" placeholder="address" />
+    <input type="password" name="password" [(ngModel)]="myUser.Password" />
+    <input type="button" (click)="register()" />
+    <p *ngIf="isWrongPassword==true">alraedy wrong password</p>
+    <p *ngIf="isWrongPassword==false">exists alraedy </p>
+</div> -->
+
+<div id="big">
+    <div id="login">
+        <input type="text" name="name" value="name" placeholder="name" [(ngModel)]="myUser.Name" /><br>
+        <input type="password" name="password" [(ngModel)]="myUser.Password" placeholder="password" /><br>
+        <input type="text" name="email" value="email" [(ngModel)]="myUser.Mail" placeholder="email" /><br>
+        <input type="text" name="adress" value="adress" [(ngModel)]="myUser.Address" placeholder="address" /><br>
+        <input type="button" (click)="register()" value="Register" /><br>
+        <p *ngIf="isWrongPassword==true">alraedy wrong password</p>
+        <p *ngIf="isWrongPassword==false">exists alraedy </p>
+        <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+        <label class="form-check-label" for="form2Example31"> Remember me </label><br>
+    </div>
+</div>

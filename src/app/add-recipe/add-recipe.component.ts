@@ -51,6 +51,9 @@ export class AddRecipeComponent implements OnInit {
   addComponenet() {
     this.componenetIndex++;
   }
+  cancel(){
+    this.rot.navigate(['all-recipe'])
+  }
   ngOnInit(): void {
   }
 }

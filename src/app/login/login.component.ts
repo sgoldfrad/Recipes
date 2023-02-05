@@ -30,9 +30,26 @@ export class LoginComponent implements OnInit {
       }
       else {
         this.rot.navigate(["all-recipe"]);
-        localStorage.setItem('user', JSON.stringify(succ));
+        this.userService.currentUser.next(this.myUser);
+        console.log("aaaa")
+        this.userService.setInStorage(this.myUser)
       }
       console.log(JSON.parse(localStorage.getItem('user')));
     });
   }
+  // login() {
+  //   console.log(this.isWrongPassword)
+  //   this.userService.loginUser(this.myUser).subscribe(succ => {
+  //     if (typeof succ === "boolean") {
+  //       this.isWrongPassword = succ;
+  //       if (this.isWrongPassword == false)
+  //         this.rot.navigate(["register", this.myUser.Name]);
+  //     }
+  //     else {
+  //       this.rot.navigate(["all-recipe"]);
+  //       localStorage.setItem('user', JSON.stringify(succ));
+  //     }
+  //     console.log(JSON.parse(localStorage.getItem('user')));
+  //   });
+  // }
 }

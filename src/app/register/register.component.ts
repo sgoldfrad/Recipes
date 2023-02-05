@@ -29,8 +29,6 @@ export class RegisterComponent implements OnInit {
         localStorage.setItem('user', JSON.stringify(succ));
         console.log(JSON.parse(localStorage.getItem('user')));
         this.rot.navigate(["all-recipe"]);
-
-
       }
     });
   }

@@ -1,14 +1,14 @@
-<form class="example" action="/action_page.php" style="   margin:auto; max-width:300px">
+<!-- <form class="example" action="/action_page.php" style="   margin:auto; max-width:300px">
     <input type="text" placeholder="חפש מתכון" name="search2" [(ngModel)]="filterName" (change)="filterArr()">
     <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <div id="all">
-    <div id="filt">
+    <div id="filt"> -->
         <!-- <input type="button" (click)="addRecipe()" value="הוספת מתכון משלך">  -->
-        <input type="button" (click)="displayFilter()" value="בחר קטגוריה" id="filterbutton">
-        <div id="filter" *ngIf="isFilter">
+        <!-- <input type="button" (click)="displayFilter()" value="בחר קטגוריה" id="filterbutton">
+        <div id="filter" *ngIf="isFilter"> -->
             <!-- <input type="text" class="inp" placeholder="שם המתכון" [(ngModel)]="filterName" (change)="filterArr()"><br> -->
-            <input type="text" class="inp" placeholder="קטגוריה" [(ngModel)]="filterCategory"
+            <!-- <input type="text" class="inp" placeholder="קטגוריה" [(ngModel)]="filterCategory"
                 (change)="filterArr()"><br>
             <input type="text" class="inp" placeholder="זמן ההכנה " [(ngModel)]="filterPreperationTimeInMinute"
                 (change)="filterArr()"><br>
@@ -21,4 +21,39 @@
             </div>
         </div>
     </div>
+</div> -->
+<div id="all">
+    <div id="filt">
+        <div>
+            <form class="example" action="/action_page.php" style="margin:auto; max-width:300px">
+                <input type="text" placeholder="חפש מתכון" name="search2" [(ngModel)]="filterName"
+                    (change)="filterArr()">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form><br><br>
+            <button mat-raised-button (click)="displayFilter()" id="filterbutton"
+                style="background-color: rgba(239, 238, 238, 0.945);">בחירת קטגוריות</button><br><br>
+        </div>
+        <div id="filter" *ngIf="isFilter">
+            <mat-form-field appearance="fill" class="input">
+                <mat-label>קטגוריה</mat-label>
+                <mat-select  [(ngModel)]="filterCategory" (ngModelChange)="filterArr()">
+                  <mat-option *ngFor="let c of categoryArry;" [value]="c.Name" >
+                    {{c.Name}}
+                  </mat-option>
+                  <mat-option value="evryThing" >
+                    הכל
+                  </mat-option>
+                </mat-select>
+              </mat-form-field >
+            <mat-form-field appearance="fill" class="input" style="color:red;">
+                <mat-label>דקות הכנה</mat-label>
+                <input matInput [(ngModel)]="filterPreperationTimeInMinute" (change)="filterArr()">
+            </mat-form-field>
+        </div>
+    </div>
+        <div id="divAll">
+            <div *ngFor="let item of filterArry" class="smallRecipe">
+                <app-small-recipe [myRecipe]="item" (click)="showDetails(item.Id)"></app-small-recipe><br>
+            </div>
+        </div>
 </div>

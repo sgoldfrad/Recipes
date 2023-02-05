@@ -44,7 +44,8 @@ import {MatCardModule} from '@angular/material/card';
 // import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FilterComponent } from './filter/filter.component';
-
+import {MatButtonModule} from '@angular/material/button';
+// import {MatSelectHarness} from '@angular/material/select/testing';
 import {MatSelectModule} from '@angular/material/select';
 
        
@@ -77,6 +78,8 @@ import {MatSelectModule} from '@angular/material/select';
     // MatToolbarHarness,
     MatFormFieldModule,
     MatSelectModule,
+    MatButtonModule,
+    // MatSelectHarness
   ],
   providers: [],
   bootstrap: [AppComponent]

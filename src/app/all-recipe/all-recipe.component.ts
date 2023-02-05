@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Recipe from 'src/Models/Recipe';
 import { RecipeService } from 'src/services/recipe.service';
-
+import { CategoryService } from 'src/services/category.service';
+import Category from 'src/Models/Category';
 @Component({
   selector: 'app-all-recipe',
   templateUrl: './all-recipe.component.html',
@@ -12,44 +13,47 @@ import { RecipeService } from 'src/services/recipe.service';
 export class AllRecipeComponent implements OnInit {
   arr: Recipe[] = [];
   filterName: string;
-  filterCategory: number;
+  filterCategory;
   filterArry: Recipe[];
-  filterPreperationTimeInMinute: number;
+  filterPreperationTimeInMinute;
   isFilter = false;
-  constructor(public recipeService: RecipeService, public rot: Router) {
+  flag = false;
+  categoryArry: Category[];
+
+  constructor(public recipeService: RecipeService, public categoryService: CategoryService, public rot: Router) {
     this.recipeService.getAllRecipe().subscribe(succ => {
       this.arr = succ;
       this.filterArry = succ;
     });
+    categoryService.getAllCategory().subscribe(succ => {
+      this.categoryArry = succ;
+    });
   }
   filterArr() {
-    // if (this.filterName != undefined && this.filterName != "")
-    //   if (this.filterCategory != undefined)
-    //     if (this.filterPreperationTimeInMinute != undefined)
-    //       this.filterArry = this.arr.filter(s => s.Name.includes(this.filterName) && s.CategoryId == this.filterCategory && s.PreparationTimeInMinute == this.filterPreperationTimeInMinute);
-    //     else
-    //       this.filterArry = this.arr.filter(s => s.Name.includes(this.filterName) && s.CategoryId == this.filterCategory);
-    //   else
-    //     if (this.filterPreperationTimeInMinute != undefined)
-    //       this.filterArry = this.arr.filter(s => s.Name.includes(this.filterName) && this.filterPreperationTimeInMinute != undefined);
-    //     else
-console.log(this.filterPreperationTimeInMinute);
-
-    //     if (this.filterName != undefined && this.filterName != "" && this.filterCategory != undefined)
-    //         this.filterArry = this.arr.filter(s => s.Name.includes(this.filterName) && s.CategoryId == this.filterCategory);
-    // if (this.filterName != undefined && this.filterName != "" && this.filterCategory != undefined)
-    //   this.filterArry = this.arr.filter(s => s.Name.includes(this.filterName) && s.CategoryId == this.filterCategory);
-    // if (this.filterName != undefined && this.filterName != "" && this.filterCategory != undefined && this.filterPreperationTimeInMinute != undefined)
-    if (this.filterName != undefined && this.filterName != "") 
+    console.log(this.filterCategory)
+    this.filterArry = this.arr;
+    // console.log(" time" + this.filterPreperationTimeInMinute + " name" + this.filterName + "cat" + this.filterCategory +"arr"+ this.arr);
+    if (this.filterName != undefined) {
+      // console.log(this.filterArr);
+      this.flag = true;
       this.filterArry = this.arr.filter(s => s.Name.includes(this.filterName));
-    if (this.filterCategory != undefined)
-    {console.log("category")
-        this.filterArry = this.filterArry.filter(s => s.CategoryId==this.filterCategory);}
-    if (this.filterPreperationTimeInMinute != undefined)
-    
-  {console.log("preparation")
-         this.filterArry = this.filterArry.filter(s => s.PreparationTimeInMinute>this.filterPreperationTimeInMinute);
-   } 
+    }
+    if (this.filterCategory != undefined && this.filterCategory != ""&&this.filterCategory!="evryThing") {
+      let idCategory:number=this.categoryArry.findIndex(s=>s.Name==this.filterCategory);
+      console.log(idCategory)
+      if (this.flag)
+        this.filterArry = this.filterArry.filter(s => s.CategoryId == idCategory+1);
+      else
+        this.filterArry = this.arr.filter(s => s.CategoryId == idCategory+1);
+      this.flag = true;
+    }
+    if (this.filterPreperationTimeInMinute != undefined && this.filterPreperationTimeInMinute != "") {
+      if (this.flag)
+        this.filterArry = this.filterArry.filter(s => s.PreparationTimeInMinute > this.filterPreperationTimeInMinute);
+      else
+        this.filterArry = this.arr.filter(s => s.PreparationTimeInMinute < this.filterPreperationTimeInMinute);
+    }
+    this.flag = false;
   }
   showDetails(id) {
     this.rot.navigate(["recipe-details", id]);

@@ -1,82 +1,103 @@
+#divAll {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 55px;
+  width: 100%;
+}
 
-#divAll{
-    height: 100%;
+.smallRecipe {
+  width: 30%;
+}
+
+#filter {
+  text-align: right;
+  right: 0px;
+  padding: 0px;
+  color: white;
+  width: 20vw;
+  height: 100vh;
+  top: 15%;
+  mat-form-field {
     width: 100%;
-    display:flex;
-    flex-wrap: wrap;
-    gap: 12vw;
-    margin-right:5vw ;
-    position: relative;
-    
- }
- .smallRecipe{
-    height: 30vh;
-}
-#filter{
-    // display: inline;
-    right: opx;;
-    padding: 0px;
-    background-color: black;
-    color: white;
-    width: 20vw;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-}
-#filt{
-display: inline;
-position: sticky;
-top: 0px;
-right: 0px;
-}
-#all{
-    display: flex;
-    flex-wrap: nowrap;
-}
-#a{
-display: inline;
-}
-.inp{
-    margin-bottom: 15px;
-    margin-top: 15px;
+  }
 }
 
-* {
-    box-sizing: border-box;
-  }
-  
-  form.example input[type=text] {
+#filt {
+  position: fixed;
+  top: 210px;
+  right: 20px;
+  text-align: right;
+}
+
+#all {
+  display: flex;
+  flex-wrap: nowrap;
+  width: calc(100% - 20vw);
+  margin-right: calc(20vw);
+}
+
+.inp {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+
+form {
+  width: 100%;
+
+  .example input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    width: 80%;
+    width: 120px;
     background: #f1f1f1;
   }
-  
-  form.example button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: darkred;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-  }
-  
-  form.example button:hover {
-    background: darkgray;
-  }
-  
-  form.example::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  form.example{
-    display: inline;
-    display: inline-flex;
-    margin: auto;
-  }
+}
+
+#filterbutton {
+  width: 100%;
+}
+
+form.example button {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  background: darkred;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: darkgray;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+form.example {
+  display: inline;
+  display: inline-flex;
+  margin: auto;
+}
+//shoshi
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input {
+  text-align: right;
+}

@@ -3,11 +3,16 @@ form table,form{
     text-align: center;
 }
 .example-full-width{
-    width:88vw;
+    width: 40vw;
     text-align: center;
     text-align: right;
 }
 .short{
-    width:20vw;
+    width: 40vw;
     text-align: right;
+}
+#savebutton{
+    top:5%;
+    margin-bottom: 8%;
+    width:160px;
 }

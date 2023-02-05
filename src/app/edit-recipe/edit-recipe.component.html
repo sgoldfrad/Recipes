@@ -1,37 +1,9 @@
-<!-- <div *ngIf="recipe">
-    <label> שם המתכון</label><br>
-    <input type="text" value="{{recipe.Name}}" [(ngModel)]="recipe.Name" /><br>
-    <label>דרגה</label><br>
-    <input type="text" value="{{recipe.Level}}" [(ngModel)]="recipe.Level" /><br>
-     <img src="../../assets/images/{{recipe.Image}}" /> 
-    <label>דקות הכנה</label><br>
-    <input type="text" value=" {{recipe.PreparationTimeInMinute}}" [(ngModel)]="recipe.PreparationTimeInMinute " /><br>
-    <select [(ngModel)]="recipe.CategoryId" name="category" #categoryId="ngModel" required>
-        <option *ngFor="let item of categoryArry" [value]=item.Id>{{item.Name}} </option>
-    </select><br>
-    <label>רכיבים</label><br>
-    <div *ngFor="let x of recipe.Layers; let i=index">
-        <label>תאור השכבה</label><br>
-        <input type="text" value="{{x.Description}}" [(ngModel)]=" recipe.Layers[i].Description" /><br>
-        <label>החומרים</label><br>
-        <p *ngFor="let y of x.Components; let j=index">
-            <input type="text" value="{{y}} " [(ngModel)]="recipe.Layers[i].Components[j]" />
-        </p>
-    </div>  
-    <label>אופן ההכנה</label><br>
-    <ol>
-        <li *ngFor="let item of recipe.Preparation; let i=index">
-            <input type="text" value="{{item}}" [(ngModel)]=" recipe.Preparation[i]" />
-        </li>
-    </ol>
-    <input type="button" value="שמור" (click)="editRecipe()" />
-</div>-->
-
+<h2>עריכת מתכון:{{recipe.Name}}</h2>
 <form class="example-form" *ngIf="recipe">
     <table class="example-full-width" cellspacing="0">
         <tr>
             <td>
-                <mat-form-field class="example-full-width" class="short">
+                <mat-form-field class="example-full-width" class="short" appearance="fill">
                     <mat-label> שם המתכון</mat-label>
                     <input matInput type="text" value="{{recipe.Name}}" name="name1" [(ngModel)]="recipe.Name">
                 </mat-form-field>
@@ -39,7 +11,7 @@
         </tr>
         <tr>
             <td>
-                <mat-form-field class="example-full-width" class="short">
+                <mat-form-field class="example-full-width" class="short" appearance="fill">
                     <mat-label>דרגה</mat-label>
                     <input matInput type="number" value="{{recipe.Level}}" name="level" [(ngModel)]="recipe.Level">
                 </mat-form-field>
@@ -47,21 +19,21 @@
         </tr>
         <tr>
             <td>
-                <mat-form-field class="example-full-width" class="short">
+                <mat-form-field class="example-full-width" class="short" appearance="fill">
                     <mat-label>דקות הכנה</mat-label>
-                    <input matInput type="number" name="preparationTimeInMinute" value="{{recipe.PreparationTimeInMinute}}"
-                        [(ngModel)]="recipe.PreparationTimeInMinute">
+                    <input matInput type="number" name="preparationTimeInMinute"
+                        value="{{recipe.PreparationTimeInMinute}}" [(ngModel)]="recipe.PreparationTimeInMinute">
                 </mat-form-field>
             </td>
         </tr>
-
     </table>
     <table class="example-full-width" cellspacing="0" class="short">
-        <mat-form-field appearance="fill">
-            <mat-label>Select</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+        <mat-form-field appearance="fill" class="input" class="short" appearance="fill">
+            <mat-label>קטגוריה</mat-label>
+            <mat-select [(ngModel)]="recipe.CategoryId">
+                <mat-option *ngFor="let c of categoryArry;" [value]="c.Id">
+                    {{c.Name}}
+                </mat-option>
             </mat-select>
         </mat-form-field>
     </table>
@@ -69,17 +41,19 @@
     <table *ngFor="let x of recipe.Layers;let i=index">
         <tr>
             <td>
-                <mat-form-field class="example-full-width" class="short">
+                <mat-form-field class="example-full-width" class="short" appearance="fill">
                     <mat-label> תאור שכבה {{i+1}}</mat-label>
-                    <input matInput [ngModelOptions]="{standalone: true}" type="text" value="recipe.Layers[i].Description" [(ngModel)]="recipe.Layers[i].Description" name="first">
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        value="recipe.Layers[i].Description" [(ngModel)]="recipe.Layers[i].Description" name="first">
                 </mat-form-field>
             </td>
         </tr>
         <tr *ngFor="let y of recipe.Layers[i].Components;let j=index">
             <td>
-                <mat-form-field class="example-full-width" class="short">
+                <mat-form-field class="example-full-width" class="short" appearance="fill">
                     <mat-label> רכיב {{j+1}}</mat-label>
-                    <input matInput [ngModelOptions]="{standalone: true}" type="text" value="recipe.Layers[i].Components[j]" [(ngModel)]="recipe.Layers[i].Components[j]" name="f">
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        value="recipe.Layers[i].Components[j]" [(ngModel)]="recipe.Layers[i].Components[j]" name="f">
                 </mat-form-field>
             </td>
         </tr>
@@ -88,12 +62,18 @@
     <table class="example-full-width" cellspacing="0">
         <tr *ngFor="let item of recipe.Preparation; let i=index">
             <td>
-                <mat-form-field class="example-full-width">
+                <!-- <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label> שלב{{i+1}}</mat-label>
-                    <input matInput [ngModelOptions]="{standalone: true}" type="text" value="{{item}}" [(ngModel)]=" recipe.Preparation[i]" name="preparation">
-                </mat-form-field>
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text" value="{{item}}"
+                        [(ngModel)]=" recipe.Preparation[i]" name="preparation">
+                </mat-form-field> -->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>שלב {{i+1}}</mat-label>
+                    <textarea matInput [ngModelOptions]="{standalone: true}" name="preparation" placeholder="אופן ההכנה" [(ngModel)]="recipe.Preparation[i]"></textarea>
+                  </mat-form-field>
             </td>
         </tr>
     </table>
 </form>
-<input type="button" value="שמור" (click)="editRecipe()" />
+<button mat-raised-button (click)="editRecipe()" id="savebutton"
+    style="background-color: rgba(239, 238, 238, 0.945);">שמור</button>
