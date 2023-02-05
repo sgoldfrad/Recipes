@@ -14,15 +14,7 @@ export class RecipeDetailsComponent implements OnInit {
   id = null;
 
   constructor(public recipeService: RecipeService, public rotId: ActivatedRoute, public rot: Router) {
-    this.rotId.params.subscribe(s => {
-      this.id = s['id'];
-      console.log(this.id)
-    })
-    this.recipeService.getRecipeById(this.id).subscribe(succ => {
-      this.recipe = succ;
-      console.log(this.recipe.PreparationTimeInMinute)
-    });
-  
+    
   }
 
   check() {
@@ -33,6 +25,12 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.rotId.params.subscribe(s => {
+      this.id = s['id'];
+    })
+    this.recipeService.getRecipeById(this.id).subscribe(succ => {
+      this.recipe = succ;
+    }); 
   }
 
 }

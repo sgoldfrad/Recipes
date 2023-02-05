@@ -17,6 +17,7 @@
   width: 20vw;
   height: 100vh;
   top: 15%;
+
   mat-form-field {
     width: 100%;
   }
@@ -40,7 +41,6 @@
   margin-bottom: 15px;
   margin-top: 15px;
 }
-
 
 form {
   width: 100%;
@@ -86,7 +86,7 @@ form.example {
   display: inline-flex;
   margin: auto;
 }
-//shoshi
+
 .example-button-row {
   display: table-cell;
   max-width: 600px;

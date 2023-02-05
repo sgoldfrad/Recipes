@@ -62,15 +62,11 @@
     <table class="example-full-width" cellspacing="0">
         <tr *ngFor="let item of recipe.Preparation; let i=index">
             <td>
-                <!-- <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label> שלב{{i+1}}</mat-label>
-                    <input matInput [ngModelOptions]="{standalone: true}" type="text" value="{{item}}"
-                        [(ngModel)]=" recipe.Preparation[i]" name="preparation">
-                </mat-form-field> -->
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>שלב {{i+1}}</mat-label>
-                    <textarea matInput [ngModelOptions]="{standalone: true}" name="preparation" placeholder="אופן ההכנה" [(ngModel)]="recipe.Preparation[i]"></textarea>
-                  </mat-form-field>
+                    <textarea matInput [ngModelOptions]="{standalone: true}" name="preparation" placeholder="אופן ההכנה"
+                        [(ngModel)]="recipe.Preparation[i]"></textarea>
+                </mat-form-field>
             </td>
         </tr>
     </table>

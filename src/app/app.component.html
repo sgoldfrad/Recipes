@@ -6,11 +6,10 @@
             <li><a routerLink="login">התחברות</a></li>
             <li><a routerLink="register">להרשמה</a></li>
             <li *ngIf="userName!='guest'" (click)="logOut()"><a>ליציאה</a></li>
-            <li><a (click)="addRecipe()" >הוספת מתכון משלך</a> </li>
-            <li id="hello" ><a>hello {{userName}}</a> </li>
+            <li><a (click)="addRecipe()">הוספת מתכון משלך</a> </li>
+            <li id="hello"><a>hello {{userName}}</a> </li>
         </ul>
     </nav>
-    <!-- <h1> HELLO {{name}}</h1> -->
 </header>
 <div class="page-wrapper">
     <router-outlet></router-outlet>

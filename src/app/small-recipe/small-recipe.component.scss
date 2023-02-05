@@ -1,25 +1,27 @@
 .example-card {
-    margin: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  }
-img{
-    height: 30vh;
-}  
-//   .example-header-image {
-//     background-size: cover;
-//   }
-#star{
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+img {
+  height: 30vh;
+}
+
+#star {
   display: inline;
   height: 4vh;
   width: 3vw;
 }
-.example-card > img {
+
+.example-card>img {
   height: 30vh;
 }
+
 .active:hover {
   background-color: #717171;
 }
-.mat-card-header{ 
+
+.mat-card-header {
   .mat-card-title {
     margin-bottom: 12px;
     text-overflow: ellipsis;

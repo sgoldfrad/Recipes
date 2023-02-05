@@ -1,23 +1,3 @@
-// import { NgModule } from '@angular/core';
-// import { BrowserModule } from '@angular/platform-browser';
-
-// import { AppRoutingModule } from './app-routing.module';
-// import { AppComponent } from './app.component';
-
-// @NgModule({
-//   declarations: [
-//     AppComponent
-//   ],
-//   imports: [
-//     BrowserModule,
-//     AppRoutingModule
-//   ],
-//   providers: [],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule { }
-
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -35,20 +15,14 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- import {MatInputModule} from '@angular/material/input';
- import {MatToolbarModule} from '@angular/material/toolbar';
-//   import {MatToolbarHarness} from '@angular/material/toolbar/testing';
-//import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-// import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { FilterComponent } from './filter/filter.component';
-import {MatButtonModule} from '@angular/material/button';
-// import {MatSelectHarness} from '@angular/material/select/testing';
-import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
-       
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,9 +35,6 @@ import {MatSelectModule} from '@angular/material/select';
     RecipeDetailsComponent,
     AddRecipeComponent,
     EditRecipeComponent,
-    FilterComponent,
-
-   
   ],
   imports: [
     BrowserModule,
@@ -72,14 +43,13 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     BrowserAnimationsModule,
     BrowserAnimationsModule,
-      MatInputModule,
-     MatToolbarModule,
-     MatCardModule,
-    // MatToolbarHarness,
+    MatInputModule,
+    MatToolbarModule,
+    MatCardModule,
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
-    // MatSelectHarness
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

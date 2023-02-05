@@ -8,13 +8,15 @@ import Recipe from 'src/Models/Recipe';
 })
 export class SmallRecipeComponent implements OnInit {
 
-  constructor() { }
   @Input()
   myRecipe: Recipe;
   count: boolean[] = [false, false, false, false, false]
+
+  constructor() { }
+
   ngOnInit(): void {
     for (let i = 0; i < this.myRecipe.Level; i++)
-    this.count[i] = true;
+      this.count[i] = true;
   }
 
 }

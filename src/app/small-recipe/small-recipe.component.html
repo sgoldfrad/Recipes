@@ -1,18 +1,9 @@
-<!-- <div>
-    <h3>{{myRecipe.Name}}</h3>
-    {{myRecipe.Level|levelPipe}}
-    <img src="../../assets/images/{{myRecipe.Image}}" />
-</div>
-hfgdjhgfjhgjghjhgfjhgfhgjghfjjjjjjjjjjjjjjjjjjj -->
-
-
 <mat-card class="example-card">
-    <mat-card-header [title]="myRecipe.Name">
-      <mat-card-title>{{myRecipe.Name}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="../../assets/images/{{myRecipe.Image}}" alt="Photo of food">
-    <mat-card-content>
-            <img *ngFor="let item of count" id="star" src ="{{item|levelPipe}}"  /> 
-    </mat-card-content>
-
-  </mat-card>
+  <mat-card-header [title]="myRecipe.Name">
+    <mat-card-title>{{myRecipe.Name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="../../assets/images/{{myRecipe.Image}}" alt="Photo of food">
+  <mat-card-content>
+    <img *ngFor="let item of count" id="star" src="{{item|levelPipe}}" />
+  </mat-card-content>
+</mat-card>

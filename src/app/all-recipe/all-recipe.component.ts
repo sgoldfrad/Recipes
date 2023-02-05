@@ -11,6 +11,7 @@ import Category from 'src/Models/Category';
   styleUrls: ['./all-recipe.component.scss']
 })
 export class AllRecipeComponent implements OnInit {
+
   arr: Recipe[] = [];
   filterName: string;
   filterCategory;
@@ -21,30 +22,20 @@ export class AllRecipeComponent implements OnInit {
   categoryArry: Category[];
 
   constructor(public recipeService: RecipeService, public categoryService: CategoryService, public rot: Router) {
-    this.recipeService.getAllRecipe().subscribe(succ => {
-      this.arr = succ;
-      this.filterArry = succ;
-    });
-    categoryService.getAllCategory().subscribe(succ => {
-      this.categoryArry = succ;
-    });
   }
+
   filterArr() {
-    console.log(this.filterCategory)
     this.filterArry = this.arr;
-    // console.log(" time" + this.filterPreperationTimeInMinute + " name" + this.filterName + "cat" + this.filterCategory +"arr"+ this.arr);
     if (this.filterName != undefined) {
-      // console.log(this.filterArr);
       this.flag = true;
       this.filterArry = this.arr.filter(s => s.Name.includes(this.filterName));
     }
-    if (this.filterCategory != undefined && this.filterCategory != ""&&this.filterCategory!="evryThing") {
-      let idCategory:number=this.categoryArry.findIndex(s=>s.Name==this.filterCategory);
-      console.log(idCategory)
+    if (this.filterCategory != undefined && this.filterCategory != "" && this.filterCategory != "evryThing") {
+      let idCategory: number = this.categoryArry.findIndex(s => s.Name == this.filterCategory);
       if (this.flag)
-        this.filterArry = this.filterArry.filter(s => s.CategoryId == idCategory+1);
+        this.filterArry = this.filterArry.filter(s => s.CategoryId == idCategory + 1);
       else
-        this.filterArry = this.arr.filter(s => s.CategoryId == idCategory+1);
+        this.filterArry = this.arr.filter(s => s.CategoryId == idCategory + 1);
       this.flag = true;
     }
     if (this.filterPreperationTimeInMinute != undefined && this.filterPreperationTimeInMinute != "") {
@@ -55,20 +46,30 @@ export class AllRecipeComponent implements OnInit {
     }
     this.flag = false;
   }
+
   showDetails(id) {
     this.rot.navigate(["recipe-details", id]);
   }
+
   addRecipe() {
     if (localStorage.getItem('user')) {
       this.rot.navigate(["add-recipe"]);
-      console.log(JSON.parse(localStorage.getItem('user')))
     }
     else
       this.rot.navigate(["login"]);
   }
+
   displayFilter() {
     this.isFilter = this.isFilter == true ? false : true;
   }
+
   ngOnInit(): void {
+    this.recipeService.getAllRecipe().subscribe(succ => {
+      this.arr = succ;
+      this.filterArry = succ;
+    });
+    this.categoryService.getAllCategory().subscribe(succ => {
+      this.categoryArry = succ;
+    });
   }
 }

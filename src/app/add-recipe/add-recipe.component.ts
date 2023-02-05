@@ -20,41 +20,39 @@ export class AddRecipeComponent implements OnInit {
   componenetIndex = 0;
   layer: Layer = new Layer(null, []);
   recipe: Recipe = { Id: null, Name: null, CategoryId: null, PreparationTimeInMinute: null, Level: null, AddDate: null, Layers: [], Preparation: [], UserId: JSON.parse(localStorage.getItem('user')).Id, Image: "5.jpg", IsDisplay: null }
-  
+
   constructor(public recipeService: RecipeService, public categoryService: CategoryService, public rot: Router) {
-    categoryService.getAllCategory().subscribe(succ => {
-      this.categoryArry = succ;
-    })
   }
 
   addRecipe(myForm) {
-    console.log(this.recipe);
-    console.log(myForm);
-     this.recipeService.addRecipe(this.recipe).subscribe(succ => {
+    this.recipeService.addRecipe(this.recipe).subscribe(succ => {
       this.recipe = succ;
-      this.rot.navigate(['all-recipe'])//?why
-      console.log(succ);
+      this.rot.navigate(['all-recipe']);
     });
   }
-  
+
   addPreperation() {
     this.preperationIndex++;
   }
+
   addLayer() {
     this.layerIndex++;
     this.componenetIndex = 0;
     this.recipe.Layers.push(this.layer);
-    this.layer=new Layer(null, []);
-    console.log(this.recipe.Layers);
-
+    this.layer = new Layer(null, []);
   }
+
   addComponenet() {
     this.componenetIndex++;
   }
-  cancel(){
+
+  cancel() {
     this.rot.navigate(['all-recipe'])
   }
+
   ngOnInit(): void {
+    this.categoryService.getAllCategory().subscribe(succ => {
+      this.categoryArry = succ;
+    })
   }
 }
-// [{Description:null,Components:[null]}]

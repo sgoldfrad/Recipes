@@ -9,25 +9,10 @@
         </p>
     </div>
     {{recipe.PreparationTimeInMinute|timePipe}}
-
     <h3>אופן ההכנה</h3>
     <ol>
         <li *ngFor="let item of recipe.Preparation">{{item}}</li>
     </ol>
-    <button mat-raised-button (click)="check()" id="btn"
-    style="background-color: rgba(239, 238, 238, 0.945);">עריכת מתכון</button>
-    <!-- <input type="button" value="עריכת מתכון" (click)="check()" /> -->
+    <button mat-raised-button (click)="check()" id="btn" style="background-color: rgba(239, 238, 238, 0.945);">עריכת
+        מתכון</button>
 </div>
-<div class="card">
-    <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
-      <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
-      <a href="#!">
-        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-      </a>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#!" class="btn btn-primary">Button</a>
-    </div>
-  </div>
